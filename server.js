@@ -1,6 +1,7 @@
 import express from "express";
 import cors from "cors";
 import dotenv from "dotenv";
+import routes from "./routes/index.js";
 
 dotenv.config();
 const PORT = process.env.PORT || 5000;
@@ -11,6 +12,12 @@ const app = express();
 // Middleware
 app.use(cors());
 app.use(express.json());
+
+// Enrutador
+app.use("/api", routes);
+
+// Sirve archivos staticos
+app.use("/imagenes", express.static("public/images/rosas"));
 
 // Configurar puerto
 app.listen(PORT, () => {
