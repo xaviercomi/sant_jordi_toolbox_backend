@@ -17,7 +17,7 @@ app.use(express.json());
 app.use("/api", routes);
 
 // Sirve archivos staticos
-app.use("/imagenes", express.static("public/images/rosas"));
+app.use(express.static("public"));
 
 // Configurar puerto
 app.listen(PORT, () => {
