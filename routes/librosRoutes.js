@@ -1,6 +1,6 @@
 import express from "express";
 
-import { getLibros } from "../controller/librosController.js";
+import { getLibros } from "../controllers/librosController.js";
 
 const router = express.Router();
 
