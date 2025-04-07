@@ -2,7 +2,7 @@ import pool from "../config/db.js";
 
 export const getLibros = async (req, res) => {
   try {
-    const result = await pool.query("SELECT * FROM libros_recomendados");
+    const result = await pool.query("SELECT * FROM libros");
     res.json(result.rows);
   } catch (error) {
     console.error(error);
