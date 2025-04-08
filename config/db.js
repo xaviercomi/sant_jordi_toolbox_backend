@@ -7,11 +7,11 @@ dotenv.config();
 
 // Instancia de Pool para conexión a base de datos
 const pool = new Pool({
-  user: "app_user",
-  host: "dpg-cvpv4mp5pdvs73egmlp0-a.frankfurt-postgres.render.com",
-  database: "sant_jordi",
-  password: "wUFCYd00P1Dsll5UromOo7FtN0kexL8k",
-  port: 5432,
+  host: process.env.HOST,
+  user: process.env.USER,
+  database: process.env.DATABASE,
+  password: process.env.PASSWORD,
+  port: process.env.PORT,
   ssl: {
     rejectUnauthorized: false,
   },
