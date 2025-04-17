@@ -1,15 +1,13 @@
 import axios from "axios";
 
 export const getLibrerias = async (req, res) => {
+  const { lat, lng } = req.query;
+
+  if (!lat || !lng) {
+    return res.status(400).json({ error: "Faltan coordenadas lat/lng" });
+  }
+
   try {
-    const { lat, lng } = req.query;
-
-    if (!lat || !lng) {
-      return res.status(400).json({ error: "Faltan coordenadas lat/lng" });
-    }
-
-    const GOOGLE_API_KEY = process.env.GOOGLE_MAPS_API_KEY;
-
     const response = await axios.get(
       "https://maps.googleapis.com/maps/api/place/nearbysearch/json",
       {
@@ -17,7 +15,7 @@ export const getLibrerias = async (req, res) => {
           location: `${lat},${lng}`,
           radius: 6000,
           keyword: "bookstore",
-          key: GOOGLE_API_KEY,
+          key: process.env.GOOGLE_MAPS_API_KEY,
         },
       }
     );
