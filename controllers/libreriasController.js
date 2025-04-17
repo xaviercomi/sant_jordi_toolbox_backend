@@ -24,7 +24,7 @@ export const getLibrerias = async (req, res) => {
       id: place.place_id,
       name: place.name,
       latitude: place.geometry.location.lat,
-      longitude: place.eometry.location.lng,
+      longitude: place.geometry.location.lng,
     }));
 
     res.json(librerias);
